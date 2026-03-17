@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme -->
+    <style name="Theme.VoxType" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/setup_bg</item>
+        <item name="android:textColorPrimary">@color/setup_text_primary</item>
+        <item name="android:textColorSecondary">@color/setup_text_secondary</item>
+    </style>
+
+    <!-- Setup / settings activity -->
+    <style name="Theme.VoxType.Setup" parent="Theme.VoxType">
+        <item name="android:statusBarColor">@color/setup_bg</item>
+        <item name="android:navigationBarColor">@color/setup_bg</item>
+    </style>
+
+    <!-- Transparent IME window – keyboard draws its own background -->
+    <style name="Theme.VoxType.IME" parent="@android:style/Theme.InputMethod">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+    <!-- Card style used on Setup screen -->
+    <style name="Widget.VoxType.Card" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/setup_card_bg</item>
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="cardElevation">0dp</item>
+    </style>
+
+    <!-- Primary button -->
+    <style name="Widget.VoxType.Button.Primary" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/btn_primary_bg</item>
+        <item name="android:textColor">@color/btn_primary_text</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
+    <!-- Secondary button -->
+    <style name="Widget.VoxType.Button.Secondary" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="strokeColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
+</resources>

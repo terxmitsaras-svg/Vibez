@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ── App-level theme ── -->
+    <color name="colorPrimary">#7C4DFF</color>
+    <color name="colorPrimaryDark">#5C35CC</color>
+    <color name="colorAccent">#00BCD4</color>
+
+    <!-- ── Keyboard background & surfaces ── -->
+    <color name="keyboard_bg">#0E0E18</color>
+    <color name="keyboard_surface">#181824</color>
+    <color name="key_normal_bg">#2D2D3A</color>
+    <color name="key_special_bg">#1E1E2C</color>
+    <color name="key_pressed_bg">#7C4DFF</color>
+    <color name="key_space_bg">#252535</color>
+
+    <!-- ── Key labels ── -->
+    <color name="key_label_primary">#EEEEFF</color>
+    <color name="key_label_secondary">#99AAAACC</color>
+    <color name="key_label_shift_active">#7C4DFF</color>
+
+    <!-- ── Prediction bar ── -->
+    <color name="prediction_bar_bg">#181824</color>
+    <color name="prediction_word_color">#DDDDFF</color>
+    <color name="prediction_divider">#33FFFFFF</color>
+
+    <!-- ── Voice overlay ── -->
+    <color name="voice_overlay_bg">#EE0E0E18</color>
+    <color name="voice_circle_bg">#18182A</color>
+    <color name="voice_ring_color">#7C4DFF</color>
+    <color name="voice_glow_color">#447C4DFF</color>
+    <color name="voice_transcript_color">#E0E0FF</color>
+    <color name="voice_status_color">#7C4DFF</color>
+
+    <!-- ── Waveform gradient ── -->
+    <color name="waveform_start">#7C4DFF</color>
+    <color name="waveform_mid">#00BCD4</color>
+    <color name="waveform_end">#7C4DFF</color>
+
+    <!-- ── Buttons ── -->
+    <color name="btn_primary_bg">#7C4DFF</color>
+    <color name="btn_secondary_bg">#2D2D3A</color>
+    <color name="btn_primary_text">#FFFFFF</color>
+    <color name="btn_secondary_text">#BBBBDD</color>
+
+    <!-- ── Setup / Settings activity ── -->
+    <color name="setup_bg">#0E0E18</color>
+    <color name="setup_card_bg">#181824</color>
+    <color name="setup_text_primary">#EEEEFF</color>
+    <color name="setup_text_secondary">#8888AA</color>
+</resources>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/setup_bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/screen_padding">
+
+        <!-- Header logo + title -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingTop="32dp"
+            android:paddingBottom="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎙️"
+                android:textSize="56sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VoxType"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:textColor="#7C4DFF"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Keyboard &amp; Unlimited Voice Typing"
+                android:textSize="14sp"
+                android:textColor="@color/setup_text_secondary"
+                android:layout_marginTop="6dp" />
+        </LinearLayout>
+
+        <!-- Step 1 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/setup_card_bg"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="0dp"
+            android:layout_marginBottom="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/step1Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setup_step1_title"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/setup_text_primary" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setup_step1_desc"
+                    android:textSize="13sp"
+                    android:textColor="@color/setup_text_secondary"
+                    android:layout_marginTop="6dp"
+                    android:lineSpacingMultiplier="1.4" />
+
+                <Button
+                    android:id="@+id/btnOpenSettings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setup_btn_open_settings"
+                    android:layout_marginTop="12dp"
+                    style="@style/Widget.VoxType.Button.Primary" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Step 2 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/setup_card_bg"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="0dp"
+            android:layout_marginBottom="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setup_step2_title"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/setup_text_primary" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setup_step2_desc"
+                    android:textSize="13sp"
+                    android:textColor="@color/setup_text_secondary"
+                    android:layout_marginTop="6dp"
+                    android:lineSpacingMultiplier="1.4" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Step 3 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/setup_card_bg"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="0dp"
+            android:layout_marginBottom="24dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setup_step3_title"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/setup_text_primary" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setup_step3_desc"
+                    android:textSize="13sp"
+                    android:textColor="@color/setup_text_secondary"
+                    android:layout_marginTop="6dp"
+                    android:lineSpacingMultiplier="1.4" />
+
+                <Button
+                    android:id="@+id/btnGrantMic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setup_btn_grant_mic"
+                    android:layout_marginTop="12dp"
+                    style="@style/Widget.VoxType.Button.Primary" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Settings link -->
+        <TextView
+            android:id="@+id/btnOpenVoxTypeSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⚙  VoxType Settings"
+            android:textSize="14sp"
+            android:textColor="#7C4DFF"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="32dp"/>
+
+
+    </LinearLayout>
+
+</ScrollView>

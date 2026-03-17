@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VoxType</string>
+    <string name="ime_name">VoxType Keyboard</string>
+    <string name="settings_title">VoxType Settings</string>
+
+    <!-- Language subtypes -->
+    <string name="subtype_en">English (US)</string>
+    <string name="subtype_el">Greek (Ελληνικά)</string>
+    <string name="subtype_es">Spanish (Español)</string>
+    <string name="subtype_fr">French (Français)</string>
+    <string name="subtype_de">German (Deutsch)</string>
+    <string name="subtype_it">Italian (Italiano)</string>
+    <string name="subtype_pt">Portuguese (Português)</string>
+    <string name="subtype_ar">Arabic (العربية)</string>
+    <string name="subtype_hi">Hindi (हिन्दी)</string>
+    <string name="subtype_zh">Chinese Simplified (简体中文)</string>
+
+    <!-- Voice mode -->
+    <string name="voice_listening">Listening… speak now</string>
+    <string name="voice_status_recording">● Recording</string>
+    <string name="voice_status_paused">⏸ Paused</string>
+    <string name="voice_btn_pause">Pause</string>
+    <string name="voice_btn_resume">Resume</string>
+    <string name="voice_btn_insert">Insert Text</string>
+    <string name="voice_btn_cancel">Cancel</string>
+    <string name="voice_error_unavailable">Voice input unavailable</string>
+    <string name="voice_error_network">Network error — try again</string>
+    <string name="voice_permission_needed">Microphone permission required</string>
+
+    <!-- Setup screen -->
+    <string name="setup_title">Set up VoxType</string>
+    <string name="setup_step1_title">1. Enable VoxType</string>
+    <string name="setup_step1_desc">Go to Settings → General Management → Language &amp; Input → On-screen keyboard → Manage keyboards</string>
+    <string name="setup_step2_title">2. Select VoxType</string>
+    <string name="setup_step2_desc">Switch to VoxType as your active keyboard in any text field</string>
+    <string name="setup_step3_title">3. Grant Microphone Access</string>
+    <string name="setup_step3_desc">Allow microphone permission for unlimited voice-to-text</string>
+    <string name="setup_btn_open_settings">Open Input Settings</string>
+    <string name="setup_btn_grant_mic">Grant Microphone</string>
+    <string name="setup_done">VoxType is ready!</string>
+
+    <!-- Settings -->
+    <string name="settings_vibration">Key vibration</string>
+    <string name="settings_autocorrect">Autocorrect</string>
+    <string name="settings_auto_punctuation">Automatic punctuation</string>
+    <string name="settings_double_space_period">Double-space → period</string>
+    <string name="settings_voice_language">Voice language</string>
+    <string name="settings_offline_speech">Prefer offline speech recognition</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_key_height">Key height</string>
+</resources>

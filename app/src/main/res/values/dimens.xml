@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Key dimensions -->
+    <dimen name="key_height_normal">52dp</dimen>
+    <dimen name="key_height_action_row">46dp</dimen>
+    <dimen name="key_margin_horizontal">3dp</dimen>
+    <dimen name="key_margin_vertical">4dp</dimen>
+    <dimen name="key_corner_radius">8dp</dimen>
+    <dimen name="keyboard_padding_h">4dp</dimen>
+    <dimen name="keyboard_padding_v">6dp</dimen>
+
+    <!-- Font sizes -->
+    <dimen name="key_label_size">15sp</dimen>
+    <dimen name="key_label_secondary_size">9sp</dimen>
+    <dimen name="key_label_special_size">13sp</dimen>
+
+    <!-- Prediction bar -->
+    <dimen name="prediction_bar_height">44dp</dimen>
+    <dimen name="prediction_chip_padding_h">14dp</dimen>
+    <dimen name="prediction_chip_padding_v">4dp</dimen>
+
+    <!-- Voice overlay -->
+    <dimen name="voice_circle_size">130dp</dimen>
+    <dimen name="voice_waveform_height">46dp</dimen>
+    <dimen name="voice_button_padding_h">18dp</dimen>
+    <dimen name="voice_button_padding_v">8dp</dimen>
+    <dimen name="voice_button_corner_radius">20dp</dimen>
+
+    <!-- Emoji picker -->
+    <dimen name="emoji_tab_height">44dp</dimen>
+    <dimen name="emoji_cell_size">44dp</dimen>
+
+    <!-- Setup / Settings -->
+    <dimen name="card_corner_radius">12dp</dimen>
+    <dimen name="screen_padding">20dp</dimen>
+</resources>

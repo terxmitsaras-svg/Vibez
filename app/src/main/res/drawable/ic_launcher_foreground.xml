@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- VoxType launcher icon foreground: microphone on dark purple -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Outer circle background -->
+    <path
+        android:fillColor="#7C4DFF"
+        android:pathData="M54,16 A38,38 0 1,1 53.9999,16 Z" />
+    <!-- Microphone body -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,30 C50.13,30 47,33.13 47,37 L47,54 C47,57.87 50.13,61 54,61 C57.87,61 61,57.87 61,54 L61,37 C61,33.13 57.87,30 54,30 Z" />
+    <!-- Microphone stand -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M66,54 C66,60.63 60.63,66 54,66 C47.37,66 42,60.63 42,54 L38,54 C38,62.84 44.72,70.08 53.5,70.86 L53.5,76 L50,76 L50,80 L58,80 L58,76 L54.5,76 L54.5,70.86 C63.28,70.08 70,62.84 70,54 Z" />
+</vector>
