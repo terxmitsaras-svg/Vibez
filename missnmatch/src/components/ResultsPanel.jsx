@@ -5,61 +5,90 @@ import { generatePalettes, getContextPalettes } from '../utils/paletteEngine';
 
 const TABS = [
   { id: 'theory', label: 'Color Theory' },
-  { id: 'home', label: '🏠 Home Decor' },
+  { id: 'home',   label: '🏠 Home' },
   { id: 'fashion', label: '👗 Fashion' },
 ];
 
 export default function ResultsPanel({ extractedColors, selectedColor, onSelectColor }) {
   const [activeTab, setActiveTab] = useState('theory');
 
-  const palettes = selectedColor ? generatePalettes(selectedColor) : null;
-  const contextPalettes = selectedColor ? getContextPalettes(selectedColor, activeTab === 'home' ? 'home' : 'fashion') : null;
-
-  const theoryPalettes = palettes
-    ? Object.values(palettes)
+  const theoryPalettes = selectedColor ? Object.values(generatePalettes(selectedColor)) : [];
+  const contextPalettes = selectedColor
+    ? getContextPalettes(selectedColor, activeTab === 'home' ? 'home' : 'fashion')
     : [];
+
+  const textColor = selectedColor
+    ? (selectedColor.hsl.l > 55 ? '#0a0a14' : '#ffffff')
+    : '#ffffff';
 
   return (
     <div className="results-panel">
-      {/* Extracted colors */}
+
+      {/* ── Extracted colors ── */}
       {extractedColors.length > 0 && (
-        <section className="section">
-          <h2 className="section-title">Colors found in your image</h2>
-          <p className="section-sub">Tap a color to generate its matching palettes</p>
+        <div className="extracted-section">
+          <div className="section-label">
+            <div className="section-label-line" />
+            <span className="section-label-text">Colors detected</span>
+            <div className="section-label-line" />
+          </div>
           <div className="extracted-swatches">
             {extractedColors.map((color, i) => (
               <ColorSwatch
                 key={i}
                 color={color}
-                size="lg"
-                showName={true}
+                index={i}
                 selected={selectedColor?.hex === color.hex}
                 onClick={() => onSelectColor(color)}
               />
             ))}
           </div>
-        </section>
+        </div>
       )}
 
+      {/* ── Selected color hero ── */}
       {selectedColor && (
         <>
-          {/* Selected color hero */}
-          <section className="selected-hero">
-            <div className="selected-swatch-big" style={{ backgroundColor: selectedColor.hex }}>
-              <div
-                className="selected-swatch-label"
-                style={{ color: selectedColor.hsl.l > 55 ? '#1a1a1a' : '#ffffff' }}
-              >
+          <div className="selected-hero">
+            <div
+              className="selected-hero-bg"
+              style={{ backgroundColor: selectedColor.hex }}
+            >
+              <div className="selected-hero-info" style={{ color: textColor }}>
                 <span className="selected-name">{selectedColor.name}</span>
-                <span className="selected-hex">{selectedColor.hex}</span>
-                <span className="selected-hsl">
-                  HSL {selectedColor.hsl.h}° {selectedColor.hsl.s}% {selectedColor.hsl.l}%
-                </span>
+                <span className="selected-hex">{selectedColor.hex.toUpperCase()}</span>
+                <div className="selected-meta">
+                  <span className="selected-meta-chip">H {selectedColor.hsl.h}°</span>
+                  <span className="selected-meta-chip">S {selectedColor.hsl.s}%</span>
+                  <span className="selected-meta-chip">L {selectedColor.hsl.l}%</span>
+                  <span className="selected-meta-chip">
+                    rgb({selectedColor.rgb.r},{selectedColor.rgb.g},{selectedColor.rgb.b})
+                  </span>
+                </div>
+              </div>
+
+              {/* HSL mini-bars */}
+              <div className="hsl-bars" style={{ color: textColor }}>
+                {[
+                  { label: 'H', val: selectedColor.hsl.h / 360, bg: 'rgba(255,255,255,0.4)' },
+                  { label: 'S', val: selectedColor.hsl.s / 100, bg: 'rgba(255,255,255,0.4)' },
+                  { label: 'L', val: selectedColor.hsl.l / 100, bg: 'rgba(255,255,255,0.4)' },
+                ].map(({ label, val, bg }) => (
+                  <div key={label} className="hsl-bar-row">
+                    <span className="hsl-bar-label" style={{ opacity: 0.6 }}>{label}</span>
+                    <div className="hsl-bar-track">
+                      <div
+                        className="hsl-bar-fill"
+                        style={{ width: `${val * 100}%`, background: bg }}
+                      />
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          </section>
+          </div>
 
-          {/* Tab nav */}
+          {/* ── Tab nav ── */}
           <div className="tab-nav">
             {TABS.map(tab => (
               <button
@@ -72,22 +101,25 @@ export default function ResultsPanel({ extractedColors, selectedColor, onSelectC
             ))}
           </div>
 
-          {/* Palettes */}
+          {/* ── Palettes ── */}
           <div className="palettes-list">
             {activeTab === 'theory' && theoryPalettes.map((p, i) => (
-              <PaletteCard key={i} palette={p} />
+              <PaletteCard key={p.name} palette={p} index={i} />
             ))}
             {(activeTab === 'home' || activeTab === 'fashion') && contextPalettes.map((p, i) => (
-              <PaletteCard key={i} palette={p} isContext={true} />
+              <PaletteCard key={p.name} palette={p} isContext={true} index={i} />
             ))}
           </div>
         </>
       )}
 
+      {/* ── Empty state ── */}
       {extractedColors.length === 0 && !selectedColor && (
         <div className="empty-state">
-          <div className="empty-icon">🌈</div>
-          <p>Upload an image or pick a color<br />to discover your perfect palette</p>
+          <div className="empty-ring">🎨</div>
+          <p className="empty-text">
+            Upload an image or pick a color<br />to discover your perfect palette
+          </p>
         </div>
       )}
     </div>

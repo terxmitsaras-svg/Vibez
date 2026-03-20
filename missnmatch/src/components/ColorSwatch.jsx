@@ -1,37 +1,40 @@
 import { useState } from 'react';
 
-export default function ColorSwatch({ color, size = 'md', showName = true, selected = false, onClick }) {
+export default function ColorSwatch({ color, index = 0, selected = false, onClick }) {
   const [copied, setCopied] = useState(false);
 
-  const copy = (e) => {
+  const handleClick = () => {
+    if (onClick) onClick();
+  };
+
+  const handleCopy = (e) => {
     e.stopPropagation();
     navigator.clipboard.writeText(color.hex).then(() => {
       setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
+      setTimeout(() => setCopied(false), 1400);
     });
   };
 
-  const textColor = color.hsl.l > 55 ? '#1a1a1a' : '#ffffff';
-
   return (
     <div
-      className={`swatch swatch-${size} ${selected ? 'swatch-selected' : ''}`}
-      style={{ backgroundColor: color.hex, cursor: onClick ? 'pointer' : 'default' }}
-      onClick={onClick}
+      className={`swatch-circle ${selected ? 'swatch-selected' : ''}`}
+      style={{ '--delay': `${index * 0.06}s` }}
+      onClick={handleClick}
       title={`${color.name} — ${color.hex}`}
     >
-      {showName && (
-        <div className="swatch-info" style={{ color: textColor }}>
-          <span className="swatch-name">{color.name}</span>
-          <button
-            className="swatch-copy"
-            style={{ color: textColor, borderColor: textColor + '55' }}
-            onClick={copy}
-          >
-            {copied ? '✓' : color.hex}
-          </button>
-        </div>
-      )}
+      <div
+        className="swatch-circle-disc"
+        style={{ backgroundColor: color.hex }}
+        onClick={handleCopy}
+      >
+        {copied ? (
+          <div className="swatch-copy-tick">✓</div>
+        ) : (
+          <div className="swatch-copy-tick">⧉</div>
+        )}
+      </div>
+      <span className="swatch-circle-name">{color.name}</span>
+      <span className="swatch-circle-hex">{color.hex}</span>
     </div>
   );
 }

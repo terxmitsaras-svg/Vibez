@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import ImageUploader from './components/ImageUploader';
 import ColorPicker from './components/ColorPicker';
 import ResultsPanel from './components/ResultsPanel';
@@ -6,11 +6,20 @@ import { extractColorsFromImage } from './utils/colorExtractor';
 import './App.css';
 
 export default function App() {
-  const [imageUrl, setImageUrl] = useState(null);
+  const [imageUrl,        setImageUrl]        = useState(null);
   const [extractedColors, setExtractedColors] = useState([]);
-  const [selectedColor, setSelectedColor] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [inputMode, setInputMode] = useState('image');
+  const [selectedColor,   setSelectedColor]   = useState(null);
+  const [loading,         setLoading]         = useState(false);
+  const [inputMode,       setInputMode]       = useState('image');
+
+  // Inject CSS vars for glow whenever selected color changes
+  useEffect(() => {
+    if (!selectedColor) return;
+    const { r, g, b } = selectedColor.rgb;
+    const root = document.documentElement;
+    root.style.setProperty('--glow', selectedColor.hex);
+    root.style.setProperty('--glow-rgb', `${r}, ${g}, ${b}`);
+  }, [selectedColor]);
 
   const handleImageLoad = useCallback((url) => {
     setImageUrl(url);
@@ -42,49 +51,61 @@ export default function App() {
 
   return (
     <div className="app">
+
+      {/* ── Header ── */}
       <header className="app-header">
+        <span className="header-tick tl" />
+        <span className="header-tick tr" />
+        <span className="header-tick bl" />
+        <span className="header-tick br" />
+
         <div className="logo-block">
           <span className="logo-miss">Miss</span>
           <span className="logo-n">N</span>
           <span className="logo-match">MatcH</span>
         </div>
-        <p className="tagline">Your personal color stylist — for home &amp; fashion</p>
+        <p className="tagline">Your personal color stylist — home &amp; fashion</p>
       </header>
 
       <main className="app-main">
+
+        {/* ── Input panel ── */}
         <section className="input-section">
           <div className="input-mode-tabs">
             <button
               className={`mode-tab ${inputMode === 'image' ? 'mode-active' : ''}`}
               onClick={() => setInputMode('image')}
             >
-              📸 From Image
+              ◎ &nbsp;From Image
             </button>
             <button
               className={`mode-tab ${inputMode === 'picker' ? 'mode-active' : ''}`}
               onClick={() => setInputMode('picker')}
             >
-              🎨 Pick Color
+              ◈ &nbsp;Pick Color
             </button>
           </div>
 
           {inputMode === 'image' && (
-            <>
-              {imageUrl ? (
-                <div className="image-preview-container">
-                  <img src={imageUrl} alt="Uploaded" className="image-preview" />
-                  <button className="btn-reset" onClick={handleReset}>✕ Try another</button>
-                  {loading && (
-                    <div className="loading-overlay">
-                      <div className="spinner" />
-                      <span>Extracting colors...</span>
+            imageUrl ? (
+              <div className="image-preview-container">
+                <img src={imageUrl} alt="Uploaded" className="image-preview" />
+                <button className="btn-reset" onClick={handleReset}>✕ reset</button>
+                {loading && (
+                  <div className="loading-overlay">
+                    <div className="scanner">
+                      <div className="scanner-ring" />
+                      <div className="scanner-ring" />
+                      <div className="scanner-ring" />
+                      <div className="scanner-dot" />
                     </div>
-                  )}
-                </div>
-              ) : (
-                <ImageUploader onImageLoad={handleImageLoad} />
-              )}
-            </>
+                    <span className="loading-text">Scanning colors</span>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <ImageUploader onImageLoad={handleImageLoad} />
+            )
           )}
 
           {inputMode === 'picker' && (
@@ -92,6 +113,7 @@ export default function App() {
           )}
         </section>
 
+        {/* ── Results ── */}
         <ResultsPanel
           extractedColors={extractedColors}
           selectedColor={selectedColor}
@@ -100,7 +122,7 @@ export default function App() {
       </main>
 
       <footer className="app-footer">
-        <p>MissNMatcH — Find your perfect palette ✦</p>
+        MissNMatcH &nbsp;✦&nbsp; Find your perfect palette
       </footer>
     </div>
   );

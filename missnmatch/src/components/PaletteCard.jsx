@@ -1,55 +1,72 @@
 import { useState } from 'react';
-import ColorSwatch from './ColorSwatch';
 
-export default function PaletteCard({ palette, isContext = false }) {
-  const [expanded, setExpanded] = useState(false);
+export default function PaletteCard({ palette, isContext = false, index = 0 }) {
+  const [copiedIdx, setCopiedIdx] = useState(null);
   const [copiedAll, setCopiedAll] = useState(false);
 
+  const copyStrip = (e, color, i) => {
+    e.stopPropagation();
+    navigator.clipboard.writeText(color.hex).then(() => {
+      setCopiedIdx(i);
+      setTimeout(() => setCopiedIdx(null), 1000);
+    });
+  };
+
   const copyAll = () => {
-    const hexList = palette.colors.map(c => c.hex).join(', ');
+    const hexList = palette.colors.map(c => c.hex).join('  ');
     navigator.clipboard.writeText(hexList).then(() => {
       setCopiedAll(true);
-      setTimeout(() => setCopiedAll(false), 1800);
+      setTimeout(() => setCopiedAll(false), 1600);
     });
   };
 
   return (
-    <div className={`palette-card ${isContext ? 'palette-card-context' : ''}`}>
-      <div className="palette-header" onClick={() => setExpanded(!expanded)}>
-        <div className="palette-title-row">
-          {isContext && <span className="palette-icon">{palette.icon}</span>}
+    <div
+      className="palette-card"
+      style={{
+        '--anim-dur': '0.5s',
+        '--anim-delay': `${index * 0.07}s`,
+      }}
+    >
+      <div className="palette-card-header">
+        <div className="palette-card-title-row">
+          {isContext && <span className="palette-ctx-icon">{palette.icon}</span>}
           <div>
-            <h3 className="palette-name">{palette.name}</h3>
-            <p className="palette-desc">{palette.description}</p>
+            <div className="palette-card-name">{palette.name}</div>
+            <div className="palette-card-desc">{palette.description}</div>
           </div>
         </div>
-        <span className="palette-chevron">{expanded ? '▲' : '▼'}</span>
+        <button
+          className={`palette-copy-all ${copiedAll ? 'copied' : ''}`}
+          onClick={copyAll}
+        >
+          {copiedAll ? '✓ copied' : 'copy all'}
+        </button>
       </div>
 
-      {/* Color strip preview */}
-      <div className="palette-strip">
+      <div className="palette-strips">
         {palette.colors.map((color, i) => (
           <div
             key={i}
-            className="palette-strip-seg"
-            style={{ backgroundColor: color.hex, flex: 1 }}
-            title={`${color.name} ${color.hex}`}
-          />
+            className="palette-strip-item"
+            style={{
+              backgroundColor: color.hex,
+              '--s-dur': '0.55s',
+              '--s-delay': `${index * 0.07 + i * 0.05}s`,
+            }}
+            onClick={(e) => copyStrip(e, color, i)}
+            title={`Copy ${color.hex}`}
+          >
+            {copiedIdx === i && (
+              <div className="strip-copied-flash">✓</div>
+            )}
+            <div className="palette-strip-info">
+              <div className="palette-strip-name">{color.name}</div>
+              <div className="palette-strip-hex">{color.hex}</div>
+            </div>
+          </div>
         ))}
       </div>
-
-      {expanded && (
-        <div className="palette-expanded">
-          <div className="palette-swatches">
-            {palette.colors.map((color, i) => (
-              <ColorSwatch key={i} color={color} size="sm" showName={true} />
-            ))}
-          </div>
-          <button className="btn-copy-all" onClick={copyAll}>
-            {copiedAll ? '✓ Copied!' : '📋 Copy all HEX codes'}
-          </button>
-        </div>
-      )}
     </div>
   );
 }
