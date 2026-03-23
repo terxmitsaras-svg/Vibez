@@ -3,15 +3,15 @@
     <string name="app_name">Vortext - AI &amp; Voice Keyboard</string>
     <string name="ime_name">Vortext</string>
     <string name="settings_title">Keyboard Settings</string>
-    <string name="subscription_title">Vibez Premium</string>
+    <string name="subscription_title">Vortext Premium</string>
 
     <!-- Setup screen -->
-    <string name="setup_title">Set Up Vibez</string>
+    <string name="setup_title">Set Up Vortext</string>
     <string name="setup_subtitle">AI &amp; Voice Keyboard</string>
-    <string name="step1_title">Enable Vibez</string>
-    <string name="step1_desc">Enable Vibez in your system keyboard settings</string>
+    <string name="step1_title">Enable Vortext</string>
+    <string name="step1_desc">Enable Vortext in your system keyboard settings</string>
     <string name="step2_title">Set as Default</string>
-    <string name="step2_desc">Make Vibez your default keyboard</string>
+    <string name="step2_desc">Make Vortext your default keyboard</string>
     <string name="step3_title">Allow Microphone</string>
     <string name="step3_desc">Required for voice-to-text feature</string>
     <string name="btn_enable_keyboard">Enable in Settings</string>
@@ -32,7 +32,7 @@
 
     <!-- Subscription -->
     <string name="subscription_free_title">Free Tier</string>
-    <string name="subscription_premium_title">Vibez Premium</string>
+    <string name="subscription_premium_title">Vortext Premium</string>
     <string name="subscription_feature_voice_free">5 min voice/day</string>
     <string name="subscription_feature_voice_premium">Unlimited voice-to-text</string>
     <string name="subscription_feature_speed">Faster processing</string>

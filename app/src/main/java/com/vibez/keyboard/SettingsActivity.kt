@@ -5,6 +5,7 @@ import android.view.MenuItem
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
+import com.vibez.keyboard.R
 import com.vibez.keyboard.language.KeyboardLanguage
 import com.vibez.keyboard.theme.KeyboardTheme
 import com.vibez.keyboard.utils.PreferencesManager

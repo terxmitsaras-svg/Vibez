@@ -454,9 +454,11 @@ class VibezIME : InputMethodService() {
     private fun deleteSentenceBackward(ic: InputConnection) {
         val text = ic.getTextBeforeCursor(200, 0)?.toString() ?: return
         if (text.isEmpty()) return
-        val lastSentenceStart = text.lastIndexOf('.')
-            .coerceAtLeast(text.lastIndexOf('!'))
-            .coerceAtLeast(text.lastIndexOf('?'))
+        val lastSentenceStart = maxOf(
+            text.lastIndexOf('.'),
+            text.lastIndexOf('!'),
+            text.lastIndexOf('?')
+        )
         val deleteCount = if (lastSentenceStart >= 0) {
             text.length - lastSentenceStart - 1
         } else {
