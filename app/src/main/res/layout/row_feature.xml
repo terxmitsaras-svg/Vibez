@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- Voice minutes -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="2" android:text="Voice to text"
+            android:textColor="#FFFFFF" android:textSize="14sp" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:text="5 min/day"
+            android:textColor="#888" android:textSize="13sp" android:gravity="center" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:text="Unlimited"
+            android:textColor="#FFD700" android:textSize="13sp" android:gravity="center" android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Processing speed -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="2" android:text="Processing speed"
+            android:textColor="#FFFFFF" android:textSize="14sp" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:text="Standard"
+            android:textColor="#888" android:textSize="13sp" android:gravity="center" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:text="Faster"
+            android:textColor="#FFD700" android:textSize="13sp" android:gravity="center" android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Ads -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="2" android:text="Ads"
+            android:textColor="#FFFFFF" android:textSize="14sp" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:text="Yes"
+            android:textColor="#888" android:textSize="13sp" android:gravity="center" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:text="None ✓"
+            android:textColor="#FFD700" android:textSize="13sp" android:gravity="center" android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- All themes -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="2" android:text="All themes"
+            android:textColor="#FFFFFF" android:textSize="14sp" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:text="2"
+            android:textColor="#888" android:textSize="13sp" android:gravity="center" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:text="All ✓"
+            android:textColor="#FFD700" android:textSize="13sp" android:gravity="center" android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- 12 languages -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="2" android:text="All 12 languages"
+            android:textColor="#FFFFFF" android:textSize="14sp" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:text="✓"
+            android:textColor="#10B981" android:textSize="13sp" android:gravity="center" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:text="✓"
+            android:textColor="#10B981" android:textSize="13sp" android:gravity="center" />
+    </LinearLayout>
+
+</LinearLayout>

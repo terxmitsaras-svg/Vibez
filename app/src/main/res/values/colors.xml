@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand colors -->
+    <color name="brand_primary">#7B61FF</color>
+    <color name="brand_secondary">#5B21B6</color>
+    <color name="brand_accent">#00D4FF</color>
+
+    <!-- Dark theme -->
+    <color name="keyboard_bg_dark">#1A1A2E</color>
+    <color name="key_bg_dark">#2D2D44</color>
+    <color name="special_key_bg_dark">#16213E</color>
+    <color name="key_text_dark">#FFFFFF</color>
+    <color name="special_key_text_dark">#B0B0C8</color>
+
+    <!-- Light theme -->
+    <color name="keyboard_bg_light">#D1D5DB</color>
+    <color name="key_bg_light">#FFFFFF</color>
+    <color name="special_key_bg_light">#ADB5BD</color>
+    <color name="key_text_light">#1F2937</color>
+
+    <!-- App UI colors -->
+    <color name="background_dark">#0F0F1A</color>
+    <color name="surface_dark">#1A1A2E</color>
+    <color name="text_primary_dark">#FFFFFF</color>
+    <color name="text_secondary_dark">#B0B0C8</color>
+    <color name="success_green">#10B981</color>
+    <color name="error_red">#EF4444</color>
+    <color name="warning_yellow">#F59E0B</color>
+    <color name="gold">#FFD700</color>
+</resources>
