@@ -1,0 +1,3 @@
+This module is the terminal-view library of Termux
+(https://github.com/termux/termux-app, version 0.118.3), licensed under the
+Apache License, Version 2.0. It is included without functional changes.

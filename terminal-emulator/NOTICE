@@ -1,0 +1,10 @@
+This module is derived from the terminal-emulator library of Termux
+(https://github.com/termux/termux-app, version 0.118.3), which is licensed under the
+Apache License, Version 2.0, and itself derives from Jack Palevich's Android Terminal Emulator.
+
+Changes made for Vibez:
+- TerminalSession runs on a pluggable TerminalBackend (local pseudo-terminal or SSH channel)
+  instead of being tied to a local process.
+- Added TerminalBackend and LocalProcessBackend.
+- The native pseudo-terminal code (src/main/cpp/pty.c) is a new implementation built for
+  16 KB page size devices.

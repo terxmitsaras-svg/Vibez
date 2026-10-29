@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Vibez</string>
+    <string name="notification_channel_sessions">Terminal sessions</string>
+    <string name="notification_channel_sessions_description">Shown while terminal or SSH sessions are running</string>
+
+    <plurals name="session_count">
+        <item quantity="one">%d session</item>
+        <item quantity="other">%d sessions</item>
+    </plurals>
+    <plurals name="ssh_count">
+        <item quantity="one">%d SSH</item>
+        <item quantity="other">%d SSH</item>
+    </plurals>
+</resources>
