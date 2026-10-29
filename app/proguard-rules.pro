@@ -12,3 +12,7 @@
 -dontwarn com.sun.jna.**
 -dontwarn javax.naming.**
 -dontwarn org.ietf.jgss.**
+
+# Keep BouncyCastle class names (classes are still shrunk); its error messages and any
+# name-based lookups stay intact.
+-keepnames class org.bouncycastle.**

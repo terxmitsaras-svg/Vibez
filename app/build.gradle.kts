@@ -54,6 +54,7 @@ android {
 
     testOptions {
         unitTests.isReturnDefaultValues = true
+        unitTests.isIncludeAndroidResources = true
     }
 }
 
@@ -70,6 +71,8 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.fragment)
     implementation(libs.androidx.biometric)
+    // The biometric prompt falls back to AppCompat dialogs on older Android versions.
+    implementation(libs.androidx.appcompat)
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.navigation.compose)
@@ -80,6 +83,7 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.compose.material.icons)
     debugImplementation(libs.compose.ui.tooling)
+    debugImplementation(libs.compose.ui.test.manifest)
 
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.serialization.json)
@@ -94,4 +98,8 @@ dependencies {
     testImplementation(libs.sshd.sftp)
     testImplementation(libs.eddsa)
     testImplementation(libs.slf4j.nop)
+    // Renders the real UI on the JVM for screenshot tests.
+    testImplementation(libs.robolectric)
+    testImplementation(platform(libs.compose.bom))
+    testImplementation(libs.compose.ui.test.junit4)
 }

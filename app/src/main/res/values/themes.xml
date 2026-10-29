@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.Vibez" parent="android:Theme.Material.NoActionBar">
+    <!-- AppCompat based so that the biometric prompt's fallback dialogs (Android 8.x) can be shown. -->
+    <style name="Theme.Vibez" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:windowBackground">@color/window_background</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>

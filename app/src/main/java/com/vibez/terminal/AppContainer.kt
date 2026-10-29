@@ -11,6 +11,7 @@ import com.vibez.terminal.ssh.PromptBroker
 import com.vibez.terminal.ssh.SshConnector
 import com.vibez.terminal.terminal.LocalShell
 import com.vibez.terminal.terminal.SessionManager
+import com.vibez.terminal.ui.AppLock
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -32,4 +33,5 @@ class AppContainer(context: Context) {
     val connector = SshConnector(hosts, keys, knownHosts, secrets, prompts)
     val localShell = LocalShell(context)
     val sessions = SessionManager(context, settings, connector, prompts, localShell, appScope)
+    val appLock = AppLock(settings)
 }

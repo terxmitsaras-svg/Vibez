@@ -6,6 +6,7 @@ import android.content.Context
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.util.Log
+import androidx.annotation.VisibleForTesting
 import androidx.core.content.getSystemService
 import com.termux.terminal.TerminalBackend
 import com.termux.terminal.TerminalSession
@@ -132,6 +133,11 @@ class SessionManager(
 
     fun openSsh(host: Host): TerminalTab =
         addTab(SessionKind.SSH, host, host.displayName, SshBackend(host, connector, prompts))
+
+    /** Open a tab on an arbitrary backend. For tests. */
+    @VisibleForTesting
+    internal fun openWithBackend(kind: SessionKind, host: Host?, title: String, backend: TerminalBackend): TerminalTab =
+        addTab(kind, host, title, backend)
 
     fun select(tabId: String) {
         val tab = tabsState.value.firstOrNull { it.id == tabId } ?: return

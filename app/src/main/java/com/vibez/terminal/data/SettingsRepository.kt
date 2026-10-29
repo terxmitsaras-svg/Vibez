@@ -38,6 +38,8 @@ data class AppSettings(
     val localShell: String = DEFAULT_SHELL,
     val uiThemeMode: UiThemeMode = UiThemeMode.SYSTEM,
     val appLock: Boolean = false,
+    /** Hide the app content from screenshots, screen recordings and the recent apps preview. */
+    val secureScreen: Boolean = false,
     /** Lock again after the app has been in the background this long. */
     val appLockTimeoutSeconds: Int = 60,
 ) {

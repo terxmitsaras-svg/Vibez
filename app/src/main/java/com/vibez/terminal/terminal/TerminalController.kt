@@ -90,9 +90,9 @@ class TerminalController(
         }
     }
 
-    fun onExtraKey(key: ExtraKey) {
+    fun onExtraKey(key: ExtraKey, haptic: Boolean = true) {
         val view = view ?: return
-        view.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP)
+        if (haptic) view.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP)
         when (key) {
             is ExtraKey.ModifierKey -> toggleModifier(key.modifier, lock = false)
             is ExtraKey.Code -> sendKeyCode(view, key.keyCode)
@@ -112,6 +112,23 @@ class TerminalController(
         if (consumeModifier(Modifier.SHIFT)) meta = meta or KeyEvent.META_SHIFT_ON or KeyEvent.META_SHIFT_LEFT_ON
         if (consumeModifier(Modifier.FN)) meta = meta or KeyEvent.META_FUNCTION_ON
         view.onKeyDown(keyCode, KeyEvent(0, 0, KeyEvent.ACTION_DOWN, keyCode, 0, meta))
+    }
+
+    /**
+     * Handle the back button inside the terminal: leave text selection, or send Escape if configured.
+     * Returns false if the screen should handle it (navigate back).
+     */
+    fun handleBack(): Boolean {
+        val view = view ?: return false
+        if (view.isSelectingText) {
+            view.stopTextSelectionMode()
+            return true
+        }
+        if (settings.current.backKeyIsEscape) {
+            sendKeyCode(view, KeyEvent.KEYCODE_ESCAPE)
+            return true
+        }
+        return false
     }
 
     fun showKeyboard() {
@@ -155,7 +172,8 @@ class TerminalController(
         showKeyboard()
     }
 
-    override fun shouldBackButtonBeMappedToEscape(): Boolean = settings.current.backKeyIsEscape
+    // Back is handled by the screen (see handleBack), which also works with predictive back gestures.
+    override fun shouldBackButtonBeMappedToEscape(): Boolean = false
 
     override fun shouldEnforceCharBasedInput(): Boolean = settings.current.enforceCharBasedInput
 

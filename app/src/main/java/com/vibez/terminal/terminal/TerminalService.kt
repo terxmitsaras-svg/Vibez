@@ -1,5 +1,6 @@
 package com.vibez.terminal.terminal
 
+import android.annotation.SuppressLint
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -8,6 +9,7 @@ import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ServiceInfo
+import android.os.Build
 import android.os.IBinder
 import android.os.PowerManager
 import androidx.core.app.NotificationCompat
@@ -51,7 +53,9 @@ class TerminalService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         // Every startForegroundService() call must be answered with startForeground(), also when running.
-        ServiceCompat.startForeground(this, NOTIFICATION_ID, buildNotification(), ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE)
+        // The special use type only exists since Android 14; older versions reject unknown types.
+        val type = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE else 0
+        ServiceCompat.startForeground(this, NOTIFICATION_ID, buildNotification(), type)
         when (intent?.action) {
             ACTION_EXIT_ALL -> sessions.closeAll()
             ACTION_TOGGLE_WAKE_LOCK -> toggleWakeLock()
@@ -67,6 +71,8 @@ class TerminalService : Service() {
         super.onDestroy()
     }
 
+    // Held until the user releases it or the last session ends, like Termux; no timeout on purpose.
+    @SuppressLint("WakelockTimeout")
     private fun toggleWakeLock() {
         if (wakeLock?.isHeld == true) {
             releaseWakeLock()
