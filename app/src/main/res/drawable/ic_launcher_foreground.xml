@@ -1,22 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- A Caps Lock keycap that only says "Cap": No Cap. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <!-- Chevron prompt -->
+    <!-- Key side -->
+    <path
+        android:fillColor="#8B949E"
+        android:pathData="M35,28 L73,28 A9,9 0 0 1 82,37 L82,73 A9,9 0 0 1 73,82 L35,82 A9,9 0 0 1 26,73 L26,37 A9,9 0 0 1 35,28 Z" />
+    <!-- Key top -->
+    <path
+        android:fillColor="#F0F3F6"
+        android:pathData="M36,29 L72,29 A7,7 0 0 1 79,36 L79,68 A7,7 0 0 1 72,75 L36,75 A7,7 0 0 1 29,68 L29,36 A7,7 0 0 1 36,29 Z" />
+    <!-- Caps lock symbol -->
     <path
         android:fillColor="#00000000"
-        android:pathData="M35,40 L49,54 L35,68"
-        android:strokeWidth="7"
-        android:strokeColor="#7EE787"
+        android:pathData="M39,34 L34,39.5 L36.8,39.5 L36.8,43 L41.2,43 L41.2,39.5 L44,39.5 Z M36.8,46 L41.2,46"
+        android:strokeWidth="1.8"
+        android:strokeColor="#0F1419"
         android:strokeLineCap="round"
         android:strokeLineJoin="round" />
-    <!-- Cursor underscore -->
+    <!-- Caps lock LED, on -->
+    <path
+        android:fillColor="#3FB950"
+        android:pathData="M71,37.5 m-2.8,0 a2.8,2.8 0 1 0 5.6,0 a2.8,2.8 0 1 0 -5.6,0" />
+    <!-- "Cap" -->
     <path
         android:fillColor="#00000000"
-        android:pathData="M55,68 L73,68"
-        android:strokeWidth="7"
-        android:strokeColor="#E6EDF3"
-        android:strokeLineCap="round" />
+        android:pathData="M45.9,54.1 A7,7 0 1 0 45.9,63.9 M58.5,61.5 a4.5,4.5 0 1 1 -9,0 a4.5,4.5 0 1 1 9,0 M58.5,56.5 L58.5,66 M63,56.5 L63,70.5 M72,61.5 a4.5,4.5 0 1 1 -9,0 a4.5,4.5 0 1 1 9,0"
+        android:strokeWidth="3"
+        android:strokeColor="#0F1419"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
 </vector>

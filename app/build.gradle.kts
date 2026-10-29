@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.vibez.terminal"
+    namespace = "com.nocap.terminal"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.vibez.terminal"
+        applicationId = "com.nocap.terminal"
         minSdk = 26
         targetSdk = 36
         versionCode = 1

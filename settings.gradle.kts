@@ -14,7 +14,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Vibez"
+rootProject.name = "NoCapTerminal"
 
 include(":app")
 include(":terminal-emulator")

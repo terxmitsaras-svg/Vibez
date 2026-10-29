@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Vibez</string>
+    <string name="app_name">No Cap Terminal</string>
+    <string name="app_name_short">No Cap</string>
     <string name="notification_channel_sessions">Terminal sessions</string>
     <string name="notification_channel_sessions_description">Shown while terminal or SSH sessions are running</string>
 
